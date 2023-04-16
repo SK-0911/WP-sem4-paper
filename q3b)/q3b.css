@@ -1,0 +1,10 @@
+*{
+    color: black;
+    font-size: 1.1rem;
+}
+.bold::first-line{
+    font-weight: bold;
+}
+.center{
+    text-align: center;
+}
