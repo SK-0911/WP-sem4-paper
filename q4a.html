@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>q4 a)</title>
+    <script>
+        function total(){
+            var coffee = parseInt(document.getElementById("q1").value) * parseInt(document.getElementById("r1").value);
+            var milk = parseInt(document.getElementById("q2").value) * parseInt(document.getElementById("r2").value);
+            var sugar = parseInt(document.getElementById("q3").value) * parseInt(document.getElementById("r3").value);
+            var biscuits = parseInt(document.getElementById("q4").value) * parseInt(document.getElementById("r4").value);
+            var lays = parseInt(document.getElementById("q5").value) * parseInt(document.getElementById("r5").value);
+
+            total = coffee + milk + sugar + biscuits + lays;
+            total = Math.round(total - 0.03*total) ;
+            document.getElementById("total").value = total;
+
+            var gst = Math.round(0.08 * total);
+            document.getElementById("gst").value = gst;
+
+            var gtotal = Math.round(total + gst);
+            document.getElementById("gtotal").value = gtotal;
+
+            var pts = Math.round(gtotal / 10);
+            document.getElementById("pts").value = pts;
+        }
+    </script>
+</head>
+<body>
+    Cust ID: <input type="text"> <br> <br>
+    Name: <input type="text"> <br> <br>
+    <table border="1">
+        <tr>
+            <th>item</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+        </tr>
+        <tr>
+            <td>Coffee:</td>
+            <td><input type="number" id="q1"></td>
+            <td ><input type="number" id="r1"></td>
+        </tr>
+        <tr>
+            <td>Milk:</td>
+            <td><input type="number" id="q2"></td>
+            <td ><input type="number" id="r2"></td>
+        </tr>
+        <tr>
+            <td>Sugar:</td>
+            <td><input type="number" id="q3"></td>
+            <td ><input type="number" id="r3"></td>
+        </tr>
+        <tr>
+            <td>Biscuits:</td>
+            <td><input type="number" id="q4"></td>
+            <td ><input type="number" id="r4"></td>
+        </tr>
+        <tr>
+            <td>Lays:</td>
+            <td><input type="number" id="q5"></td>
+            <td><input type="number" id="r5"></td>
+        </tr>
+    </table>
+
+    <br>
+    <p>Total (after 3% discount): <input type="number" id="total"></p>
+    <br>
+    <p>GST: <input type="number" id="gst"></p>
+    <br>
+    <p>Grand Total: <input type="number" id="gtotal"></p>
+    <br>
+    <p>Reward: <input type="number" id="pts"></p>
+    <button type="submit" onclick="total()">Generate Bill</button>
+</body>
+</html>

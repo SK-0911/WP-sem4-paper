@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular.min.js"></script>
+    <title>q4 b)</title>
+</head>
+<body>
+    <form ng-app="app" ng-controller="cont">
+        <table border="1">
+            <tr>
+                <td> Student ID:</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td> Student Name:</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td rowspan="5">Marks:</td>
+                <td>Sub1: <input type="number" ng-model="marks.sub1"></td>
+            </tr>
+            <tr>
+                <td>Sub2: <input type="number" ng-model="marks.sub2"></td>
+            </tr>
+            <tr>
+                <td>Sub3: <input type="number" ng-model="marks.sub3"></td>
+            </tr>
+            <tr>
+                <td>Sub4: <input type="number" ng-model="marks.sub4"></td>
+            </tr>
+            <tr>
+                <td>Sub5: <input type="number" ng-model="marks.sub5"></td>
+            </tr>
+
+            <tr>
+                <td rowspan="5">Subject:</td>
+                <td>Sub1: {{marks.sub1}}</td>
+            </tr>
+            <tr>
+                <td>Sub2: {{marks.sub2}}</td>
+            </tr>
+            <tr>
+                <td>Sub3: {{marks.sub3}}</td>
+            </tr>
+            <tr>
+                <td>Sub4: {{marks.sub4}}</td>
+            </tr>
+            <tr>
+                <td>Sub5: {{marks.sub5}}</td>
+            </tr>
+            <tr>
+                <td>Total: </td>
+                <td>{{marks.sub1 + marks.sub2 + marks.sub3 + marks.sub4 + marks.sub5}}</td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        var app = angular.module("app", []);
+
+        app.controller("cont", function ($scope){
+            $scope.marks = {
+                sub1 : "",
+                sub2 : "",
+                sub3 : "",
+                sub4 : "",
+                sub5 : "",
+
+                total : function (){
+                    var obj = $scope.marks
+                    return obj.sub1 + obj.sub2 + obj.sub3 + obj.sub4 + obj.sub5;
+                }
+            };
+        });
+    </script>
+</body>
+</html>

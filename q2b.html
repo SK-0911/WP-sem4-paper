@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>q2b</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <h2>Form Validation Angular JS</h2>
+    <div ng-app="app" ng-controller="cont">
+        <form name="form" novalidate>
+            <table border="0">
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="Name" ng-model="name" required>
+                        <span style="color: red" ng-show="form.Name.$dirty && form.Name.$invalid">
+                            <span ng-show="form.Name.$error.required">Required!</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" name="Add" ng-model="add" required>
+                        <span style="color: red" ng-show="form.Add.$dirty && form.Add.$invalid">
+                            <span ng-show="form.Add.$error.required">Required!</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Contact:</td>
+                    <td>
+                        <input type="tel" name="num" ng-model="contact" required>
+                        <span style="color: red" ng-show="form.num.$dirty && form.num.$invalid">
+                            <span ng-show="form.num.$error.required">Required!</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" name="Email" ng-model="email" required>
+                        <span style="color: red" ng-show="form.Email.$dirty && form.Email.$invalid">
+                            <span ng-show="form.Email.$error.required">Required!</span>
+                            <span ng-show="form.Email.$error.email">Invalid!</span>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <br> <br>
+            <input type="checkbox">I agree <br> <br>
+            <button type="submit">Submit Form</button>
+        </form>
+    </div>
+
+    <script>
+        var a = angular.module("app", []);
+
+        a.controller("cont", function ($scope){
+            $scope.reset = function (){
+                $scope.name = "Shubham";
+                $scope.add = "Earth";
+                $scope.contact = "91"
+            }
+            // $scope.reset();
+        });
+    </script>
+</body>
+</html>
